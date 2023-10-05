@@ -25,11 +25,16 @@
     } */
 
     .box{
+        position:relative ;
+        top: 40px;
+        left: 30%;
+
         padding:100px;
         width: 25%;
         height: 100px;
         background: linear-gradient(180deg, #7E92C5 0%, rgba(152, 181, 255, 0.00) 100%);
-        box-shadow: 1px 4px 3px 6px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+        /* box-shadow: 1px 4px 3px 6px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 10px rgba(0, 0, 0, 0.25); */
     }
     
     #one{
@@ -43,5 +48,15 @@
     }
 
     h1{
-color:purple
+position: relative;
+left: 28%;
+width: 50%;
+color: #CE7FE1;
+text-align: center;
+font-size: 40px;
+text-shadow: -1px 10px 10px #c396ff;
+font-family: Londrina Sketch;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
     }
