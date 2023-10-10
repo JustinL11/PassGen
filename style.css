@@ -24,7 +24,20 @@
         left:50rem;
     } */
 
+    #one{
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    #two{
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+    }
+
     .box{
+        margin:0%;
         position:relative ;
         top: 40px;
         left: 30%;
@@ -45,7 +58,7 @@
         background-size: cover;
     }
 
-    h1{
+    h1{ /* TODO: Fix the centering */
 position: relative;
 left: 28%;
 width: 50%;
