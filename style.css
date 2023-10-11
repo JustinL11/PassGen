@@ -36,6 +36,10 @@
         margin: 0 auto;
     }
 
+    button{
+        gap:10px;
+    }
+
     .box{
         margin:0%;
         position:relative ;
