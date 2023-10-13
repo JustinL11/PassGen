@@ -79,4 +79,5 @@ line-height: normal;
 .bubbles{
         position: relative;
         right: 100px;
+        width: 155%;
 }
