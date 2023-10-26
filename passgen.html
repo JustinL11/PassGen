@@ -16,18 +16,19 @@
         Uppercase <input type="checkbox" id="Uppercase" name="Uppercase" value="yes">
         </label>
 
-        <label for="passlen">Length:</label>
-        <input type="text" id="passlen" name="passlen" />
-
-        </div>
-
+        <label for="passlen">Length:
+            <input type="range" id="passlen" name="passlen" min="0" max="30" value="8" oninput="rangeValue.innerText = this.value">
+            <span id="rangeValue">8</span>
+        </label>
         <div>
+
         <label for="Lowercase">
         Lowercase <input type="checkbox" id="Lowercase" name="Lowercase" value="yes">
         </label>
 
-        <label for="usertxt">Usertext:</label>
-        <input type="text" id="usertxt" name="usertxt" />
+        <label for="usertxt">Usertext:
+            <input type="text" id="usertxt" name="usertxt">
+        </label>
         </div>
         
         <div>
