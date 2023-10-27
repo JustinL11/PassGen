@@ -68,12 +68,52 @@
 
         <div>
         <center>
-        <input type="submit" value="GenPass" />
+        <input type="submit" id="genPassBtn" value="GenPass" />
 
         <input type="submit" value="AutoPass" />
         </center>
         </div>
 
      </div>
+
+     <script>
+        // JavaScript code for password generation
+ const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+ const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+ const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+ const numberChars = '0123456789';
+
+ document.getElementById('genPassBtn').addEventListener('click', () => {
+     const passLength = document.getElementById('passlen').value;
+     const useUppercase = document.getElementById('Uppercase').checked;
+     const useLowercase = document.getElementById('Lowercase').checked;
+     const useSpecialChars = document.getElementById('Characters').checked;
+     const useNumbers = document.getElementById('Numbers').checked;
+     const userText = document.getElementById('usertxt').value;
+
+     let allowedChars = '';
+     if (useUppercase) allowedChars += uppercaseChars;
+     if (useLowercase) allowedChars += lowercaseChars;
+     if (useSpecialChars) allowedChars += specialChars;
+     if (useNumbers) allowedChars += numberChars;
+     if (userText) allowedChars += userText;
+
+     if (allowedChars.length === 0) {
+         alert('Please select at least one character type or provide user text.');
+         return;
+     }
+
+     let password = '';
+     for (let i = 0; i < passLength; i++) {
+         console.log("Hi I am in the function");
+         const randomIndex = Math.floor(Math.random() * allowedChars.length);
+         password += allowedChars[randomIndex];
+     }
+
+     document.getElementById('genbox').value = password;
+ });
+
+
+  </script>
 </body>
 </html>
