@@ -6,6 +6,19 @@
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <style>
+        /* Add CSS styles here */
+        .box label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Add margin to the "Length" label */
+        label[for="passlen"] {
+            margin-bottom: 20px;
+        }
+    </style>
+
 </head>
 <body>
     <h1>This is the Password Generator Page</h1>
@@ -15,50 +28,52 @@
         <label for="Uppercase" style="color:white">
         Uppercase <input type="checkbox" id="Uppercase" name="Uppercase" value="yes">
         </label>
-
-        <label for="passlen" style="color:white">Length:
-            <input type="range" id="passlen" name="passlen" min="0" max="30" value="8" oninput="rangeValue.innerText = this.value">
-            <span id="rangeValue">8</span>
-        </label>
         <div>
 
         <label for="Lowercase" style="color:white">
         Lowercase <input type="checkbox" id="Lowercase" name="Lowercase" value="yes">
         </label>
-
-        <label for="usertxt" style="color:white">Usertext:
-            <input type="text" id="usertxt" name="usertxt">
-        </label>
         </div>
-        
+
         <div>
         <label for="Characters" style="color:white">
         Characters <input type="checkbox" id="Characters" name="Characters" value="yes">
         </label>
         </div>
-        
+
         <div>
-        <label for="Numbers" style="color:white">
-        Numbers <input type="checkbox" id="Numbers" name="Numbers" value="yes">
-         </label>
+            <label for="Numbers" style= "color:white">
+                Numbers<input type="checkbox" id="Numbers" name="Numbers" value="yes">
+             </label>
+            </div>
+
+        <div>
+            <label for="passlen" style="color:white">Length:
+                <input type="range" id="passlen" name="passlen" min="0" max="30" value="8" oninput="rangeValue.innerText = this.value">
+                <span id="rangeValue">8</span>
+            </label>
+
+            <label for="usertxt" style="color:white">
+                Usertext <input type="text" id="usertxt" name="usertxt">
+            </label>
         </div>
 
+
         <center><div>
-        <label for="genbox" style="color:white" >..|</label>
+        <div>
+        <div>
+        <label for="genbox" style="color:white" ></label>
         <input type="text" id="genbox" name="genbox" />
         </div></center>
 
         <div>
         <center>
         <input type="submit" value="GenPass" />
-        <input type="submit" value="Auto Pass" />
+
+        <input type="submit" value="AutoPass" />
         </center>
         </div>
-        
-
 
      </div>
-
-
 </body>
 </html>
