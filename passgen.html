@@ -10,13 +10,18 @@
         /* Add CSS styles here */
         .box label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 5%;
         }
 
         /* Add margin to the "Length" label */
         label[for="passlen"] {
-            margin-bottom: 20px;
+            margin-bottom: 10%;
         }
+
+        #genbox {
+                width: 50%; /* You can adjust the width as needed */
+                height: 60%; /* You can adjust the height as needed */
+            }
     </style>
 
 </head>
@@ -37,7 +42,7 @@
 
         <div>
         <label for="Characters" style="color:white">
-        Characters <input type="checkbox" id="Characters" name="Characters" value="yes">
+            Special Characters <input type="checkbox" id="Characters" name="Characters" value="yes">
         </label>
         </div>
 
@@ -49,7 +54,7 @@
 
         <div>
             <label for="passlen" style="color:white">Length:
-                <input type="range" id="passlen" name="passlen" min="0" max="30" value="8" oninput="rangeValue.innerText = this.value">
+                <input type="range" id="passlen" name="passlen" min="0" max="20" value="8" oninput="rangeValue.innerText = this.value">
                 <span id="rangeValue">8</span>
             </label>
 
@@ -61,59 +66,76 @@
 
         <center><div>
         <div>
-        <div>
-        <label for="genbox" style="color:white" ></label>
-        <input type="text" id="genbox" name="genbox" />
-        </div></center>
+            <div>
+                <label for="genbox" style="color:white" ></label>
+                <input type="text" id="genbox" name="genbox" />
+            </div>
+        </center>
+
 
         <div>
         <center>
-        <input type="submit" id="genPassBtn" value="GenPass" />
-
-        <input type="submit" value="AutoPass" />
+            <input type="submit" id="genPassBtn" value="GenPass" />
+            <input type="button" id="autoPassBtn" value="AutoPass" />
         </center>
         </div>
 
-     </div>
-
-     <script>
+    </div>
+     
+    <script>
         // JavaScript code for password generation
- const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
- const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
- const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
- const numberChars = '0123456789';
+        const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+        const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+        const numberChars = '0123456789';
+        
+        document.getElementById('genPassBtn').addEventListener('click', () => {
+        const passLength = document.getElementById('passlen').value;
+        const useUppercase = document.getElementById('Uppercase').checked;
+        const useLowercase = document.getElementById('Lowercase').checked;
+        const useSpecialChars = document.getElementById('Characters').checked;
+        const useNumbers = document.getElementById('Numbers').checked;
+        const userText = document.getElementById('usertxt').value;
+        
+        let allowedChars = '';
+        if (useUppercase) allowedChars += uppercaseChars;
+        if (useLowercase) allowedChars += lowercaseChars;
+        if (useSpecialChars) allowedChars += specialChars;
+        if (useNumbers) allowedChars += numberChars;
+        if (userText) allowedChars += userText;
 
- document.getElementById('genPassBtn').addEventListener('click', () => {
-     const passLength = document.getElementById('passlen').value;
-     const useUppercase = document.getElementById('Uppercase').checked;
-     const useLowercase = document.getElementById('Lowercase').checked;
-     const useSpecialChars = document.getElementById('Characters').checked;
-     const useNumbers = document.getElementById('Numbers').checked;
-     const userText = document.getElementById('usertxt').value;
+        if (allowedChars.length === 0) {
+            alert('Please select at least one character type or provide user text.');
+            return;
+        }
 
-     let allowedChars = '';
-     if (useUppercase) allowedChars += uppercaseChars;
-     if (useLowercase) allowedChars += lowercaseChars;
-     if (useSpecialChars) allowedChars += specialChars;
-     if (useNumbers) allowedChars += numberChars;
-     if (userText) allowedChars += userText;
+        let password = '';
+        for (let i = 0; i < passLength; i++) {
+            console.log("Hi I am in the function");
+            const randomIndex = Math.floor(Math.random() * allowedChars.length);
+            password += allowedChars[randomIndex];
+        }
 
-     if (allowedChars.length === 0) {
-         alert('Please select at least one character type or provide user text.');
-         return;
-     }
+        document.getElementById('genbox').value = password;
+    });
 
-     let password = '';
-     for (let i = 0; i < passLength; i++) {
-         console.log("Hi I am in the function");
-         const randomIndex = Math.floor(Math.random() * allowedChars.length);
-         password += allowedChars[randomIndex];
-     }
+        document.getElementById('autoPassBtn').addEventListener('click', () => {
+        const autoPassMinLength = 7; // Minimum length (greater than 6)
+        const autoPassMaxLength = 20; // Maximum length (less than 21)
+        const autoPassLength = Math.floor(Math.random() * (autoPassMaxLength - autoPassMinLength + 1)) + autoPassMinLength;
+        const autoAllowedChars = uppercaseChars + lowercaseChars + numberChars + specialChars;
+        let autoPassword = '';
 
-     document.getElementById('genbox').value = password;
- });
+        for (let i = 0; i < autoPassLength; i++) {
+            const randomIndex = Math.floor(Math.random() * autoAllowedChars.length);
+            autoPassword += autoAllowedChars[randomIndex];
+        }
+
+        document.getElementById('genbox').value = autoPassword;
+    });
 
 
   </script>
+
 </body>
 </html>
