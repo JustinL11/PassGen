@@ -104,19 +104,31 @@
         if (useNumbers) allowedChars += numberChars;
         if (userText) allowedChars += userText;
 
-        if (allowedChars.length === 0) {
-            alert('Please select at least one character type or provide user text.');
-            return;
+        let password = '';
+
+        if (userText) {
+            // Shuffle the characters of the user text
+            const shuffledUserText = shuffleString(userText);
+            password += shuffledUserText;
         }
 
-        let password = '';
-        for (let i = 0; i < passLength; i++) {
-            console.log("Hi I am in the function");
+        // Continue generating the password with other criteria
+        while (password.length < passLength) {
             const randomIndex = Math.floor(Math.random() * allowedChars.length);
             password += allowedChars[randomIndex];
         }
+        // Function to shuffle the characters of a string
+        function shuffleString(str) {
+            const array = str.split('');
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array.join('');
+        }
 
         document.getElementById('genbox').value = password;
+
     });
 
         document.getElementById('autoPassBtn').addEventListener('click', () => {
