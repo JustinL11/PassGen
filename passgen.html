@@ -6,6 +6,8 @@
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <!-- For Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         /* Add CSS styles here */
         .box label {
@@ -145,6 +147,31 @@
 
         document.getElementById('genbox').value = autoPassword;
     });
+
+
+
+    //JS for SQL Adding and removing passwords etc....
+    $(document).ready(function() {
+    // Make an AJAX request to node.js
+    $.ajax({
+        url: 'node.js',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            // Handle the returned data and populate your site
+            var container = $('#data-container');
+            $.each(data, function(index, item) {
+                // Assuming each item has WebsiteName, UsernameEmail, PasswordHash properties
+                container.append('<p>Website: ' + item.WebsiteName + ', Username/Email: ' + item.UsernameEmail + ', Password: ' + item.PasswordHash + '</p>');
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching data: ' + error);
+        }
+    });
+});
+
+
 
 
   </script>
