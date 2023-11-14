@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <!-- For Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        /* Add CSS styles here */
+        .box label {
+            display: block;
+            margin-bottom: 5%;
+        }
+
+        /* Add margin to the "Length" label */
+        label[for="passlen"] {
+            margin-bottom: 10%;
+        }
+
+        #genbox {
+                width: 50%; /* You can adjust the width as needed */
+                height: 60%; /* You can adjust the height as needed */
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <div class = "box">
+
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Settings</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="account_settings.html">Account Settings</a>
+              <a href="passgen.html">Generate Passwords</a>
+              <a href="#">About Us</a>
+              <a href="login.html">Sign Out</a>
+            </div>
+          </div>
+        <div>
+
+        <h1> Help. </h1>
+
+    </div>
+     
+    <script>
+    // Dropdown menu logic
+
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+        }
+    }
+    }
+    </script>
+    
+</body>
+</html>
