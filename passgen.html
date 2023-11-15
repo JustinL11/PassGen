@@ -28,6 +28,17 @@
 
 </head>
 <body>
+
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Settings</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="account_settings.html">Account Settings</a>
+          <a href="passgen.html">Generate Passwords</a>
+          <a href="#">About Us</a>
+          <a href="login.html">Sign Out</a>
+        </div>
+      </div>
+
     <h1>This is the Password Generator Page</h1>
 
     <div class = "box">
@@ -178,7 +189,25 @@ function savePassword() {
     }
 
 
+    // Dropdown menu logic
 
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+        }
+    }
+    }
 
   </script>
 
