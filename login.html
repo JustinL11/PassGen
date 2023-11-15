@@ -10,19 +10,34 @@
 <body>
     <h1>This is the Login Page</h1>
 
-    <div class = "box">
+    <div class="box">
         <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" />
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" />
+        </div>
+
+        <div>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password" minlength="8" required />
+            <!-- Change type to "button" and call login() on click -->
+            <input type="button" value="Sign in" onclick="login()" />
+        </div>
     </div>
 
-    <div>
-        <label for="pass">Password:</label>
-        <input type="password" id="pass" name="password" minlength="8" required />
-        <input type="submit" value="Sign in" />
-        </div>
-     
-      
-      
+    <script>
+        function login() {
+            var enteredUsername = document.getElementById("username").value;
+            var enteredPassword = document.getElementById("pass").value;
+
+            // Check if the entered username and password match your predefined values
+            if (enteredUsername === "passgen" && enteredPassword === "password") {
+                //alert("Login successful!");
+                // You can redirect the user to another page or perform other actions after successful login.
+                window.location.href = "passgen.html";
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
 </body>
 </html>
