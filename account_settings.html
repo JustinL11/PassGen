@@ -43,10 +43,45 @@
 
     <div class = "box">
         <div>
-        <div id="Profile_image">
-        <img src="Profile Icon.png" style="width:125px;height:125px;">
+        <div id="Profile_image"> <h2> Guest User </h2>
+        <img class="ProfileIMG" src="Profile Icon.png">
+        
         </div>
     </div>
+
+    <body>
+
+        <div class = "innerbox">
+
+            <p id="passwordList" style="background-color: black; color: white;">
+                <!-- Passwords will be displayed here -->
+            </p>
+        
+            <script>
+                // Retrieve saved passwords from local storage
+                const savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
+        
+                // Display saved passwords on the page
+                const passwordListContainer = document.getElementById('passwordList');
+        
+                if (savedPasswords.length > 0) {
+                    const ul = document.createElement('ul');
+        
+                    savedPasswords.forEach(password => {
+                        const li = document.createElement('li');
+                        li.textContent = password;
+                        ul.appendChild(li);
+                    });
+        
+                    passwordListContainer.appendChild(ul);
+                } else {
+                    passwordListContainer.textContent = 'No saved passwords.';
+                }
+            </script>
+
+        </div>
+
+    </body>
      
     <script>
     // Dropdown menu logic
