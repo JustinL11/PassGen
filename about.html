@@ -8,14 +8,19 @@
             margin-bottom: 5%;
         }
         body {
-            background-color: #7E92C5;
+            margin: auto;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: auto;
+            background: linear-gradient(315deg, rgb(89, 69, 88) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgb(109, 26, 158) 98%);
+            animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
             color: white;
-            font-family: Arial, sans-serif;
             margin: 50px;
         }
 
         h1, h2 {
-            color: purple; /* Green color for headings */
+            color: rgb(0, 0, 0); /* Green color for headings */
         }
 
         li {
@@ -28,7 +33,7 @@
 
         /* Dropdown Button */
         .dropbtn {
-            background-color: rgb(141, 23, 141);
+            background-color: rgb(169, 23, 169);
             color: white;
             padding: 16px;
             font-size: 16px;
@@ -60,6 +65,54 @@
             display: block;
         }
 
+        /* Wave Styles */
+        .wave {
+            background: rgba(154, 34, 154, 0.6);
+            border-radius: 1000% 1000% 0 0;
+            position: fixed;
+            width: 200%;
+            height: 12em;
+            animation: wave 10s -3s linear infinite;
+            transform: translate3d(0, 0, 0);
+            opacity: 0.8;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .wave:nth-of-type(2) {
+            bottom: -1.25em;
+            animation: wave 18s linear reverse infinite;
+            opacity: 0.8;
+        }
+
+        .wave:nth-of-type(3) {
+            bottom: -2.5em;
+            animation: wave 20s -1s reverse infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes wave {
+            2% {
+                transform: translateX(1);
+            }
+
+            25% {
+                transform: translateX(-25%);
+            }
+
+            50% {
+                transform: translateX(-50%);
+            }
+
+            75% {
+                transform: translateX(-25%);
+            }
+
+            100% {
+                transform: translateX(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -94,16 +147,20 @@
 
     </p>
     <p>Additionally, users will also have the option to use the Auto generator to generate a password for them without going 
-        through the design process.This tool provides users with the flexibility to customize their passwords to their liking or 
+        through the design process. This tool provides users with the flexibility to customize their passwords to their liking or 
         rely on automated password generation for convenience.</p>
     
-    <!-- Add any additional styling or scripts if needed -->
-
+    <!-- Wave elements -->
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
 
     <script>
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
-            }
+        }
 
         // Close the dropdown menu if the user clicks outside of it
         window.onclick = function(event) {
@@ -119,6 +176,5 @@
             }
         }
     </script>
-
 </body>
 </html>
