@@ -7,7 +7,7 @@ window.onload = function() {
     
     document.getElementById("two").addEventListener("click", function() {
         // Redirect to passgen.html
-        window.location.href = "passgen.html";
+        window.location.href = "guest.html";
     });
     
 };
