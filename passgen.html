@@ -156,7 +156,7 @@
     });
 
         document.getElementById('autoPassBtn').addEventListener('click', () => {
-        const autoPassMinLength = 7; // Minimum length (greater than 6)
+        const autoPassMinLength = 8; // Minimum length (greater than 6)
         const autoPassMaxLength = 20; // Maximum length (less than 21)
         const autoPassLength = Math.floor(Math.random() * (autoPassMaxLength - autoPassMinLength + 1)) + autoPassMinLength;
         const autoAllowedChars = uppercaseChars + lowercaseChars + numberChars + specialChars;
