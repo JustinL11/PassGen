@@ -3,6 +3,7 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
+
         .box label {
             display: block;
             margin-bottom: 5%;
@@ -11,7 +12,7 @@
             margin: auto;
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             overflow: auto;
-            background: linear-gradient(315deg, rgb(89, 69, 88) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgb(109, 26, 158) 98%);
+            background: linear-gradient(315deg, rgb(185, 128, 182) 3%, rgb(105, 70, 136) 38%, rgb(131, 47, 204) 68%, rgb(57, 9, 84) 98%);
             animation: gradient 15s ease infinite;
             background-size: 400% 400%;
             background-attachment: fixed;
@@ -19,8 +20,30 @@
             margin: 50px;
         }
 
-        h1, h2 {
-            color: rgb(0, 0, 0); /* Green color for headings */
+        h1, h2, h4{
+            color: rgb(255, 255, 255); /* Green color for headings */
+        }
+
+        h3 {
+            color: rgb(255, 255, 255); /* Green color for headings */
+        }
+        ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove default padding for the list */
+        }
+
+        li {
+            margin-bottom: 15px; /* Add spacing between each list item */
+        }
+
+        a {
+            color: rgb(255, 255, 255); /* Blue color for the links */
+            text-decoration: underline;
+            font-weight: none; /* Make the links bold */
+        }
+
+        a:hover {
+            color: rgb(255, 255, 255); /* Darker blue color on hover */
         }
 
         li {
@@ -67,7 +90,7 @@
 
         /* Wave Styles */
         .wave {
-            background: rgba(154, 34, 154, 0.6);
+            background: rgba(226, 117, 215, 0.6);
             border-radius: 1000% 1000% 0 0;
             position: fixed;
             width: 200%;
@@ -149,7 +172,44 @@
     <p>Additionally, users will also have the option to use the Auto generator to generate a password for them without going 
         through the design process. This tool provides users with the flexibility to customize their passwords to their liking or 
         rely on automated password generation for convenience.</p>
-    
+
+
+    <h3>Useful Links</h3>
+    <ul>
+        <li><a href="https://www.cisa.gov/news-events/news/choosing-and-protecting-passwords" target="_blank">Why is choosing and protecting passwords important?</a></li>
+        <li><a href="https://www.microsoft.com/en-us/security/business/security-101/what-is-password-protection" target="_blank">How to choose a strong password?</a></li>
+    </ul>
+
+    <div style="margin-top: 30px;">
+        <h2>Authors</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div>
+                <p>
+                    <strong>Justin Lee</strong><br>
+                    Major: Computer Science<br>
+                    Minor: Graphic Design
+                </p>
+                <img src="path/to/justin-image.jpg" alt="Justin Lee">
+            </div>
+            <div>
+                <p>
+                    <strong>Ly Xiong</strong><br>
+                    Major: Computer & Data Science<br>
+                    Minor: Mathematics
+                </p>
+                <img src="path/to/justin-image.jpg" alt="Ly Xiong">
+            </div>
+            <div>
+                <p>
+                    <strong>Zakaria Faarah</strong><br>
+                    Major: Computer Science
+                </p>
+                <img src="path/to/justin-image.jpg" alt="Zakaria Faarah">
+            </div>
+        </div>
+    </div>
+
+
     <!-- Wave elements -->
     <div>
         <div class="wave"></div>
@@ -175,6 +235,8 @@
                 }
             }
         }
+
+        
     </script>
 </body>
 </html>
