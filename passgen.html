@@ -125,38 +125,34 @@
         if (useLowercase) allowedChars += lowercaseChars;
         if (useSpecialChars) allowedChars += specialChars;
         if (useNumbers) allowedChars += numberChars;
-        if (userText) allowedChars += userText;
+       // if (userText) allowedChars += userText;
 
-        if (allowedChars.length === 0) {
-            alert('Please select at least one character type or provide user text.');
+       if (allowedChars.length === 0) {
+            alert('Please select at least one character type.');
             return;
         }
 
         let password = '';
 
         if (userText) {
-            // Shuffle the characters of the user text
-            const shuffledUserText = shuffleString(userText);
-            password += shuffledUserText;
-        }
-
-        // Continue generating the password with other criteria
-        while (password.length < passLength) {
-            const randomIndex = Math.floor(Math.random() * allowedChars.length);
-            password += allowedChars[randomIndex];
-        }
-        // Function to shuffle the characters of a string
-        function shuffleString(str) {
-            const array = str.split('');
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
+            // Insert the entire user text at a random position in the password
+            const userTextPosition = Math.floor(Math.random() * (passLength - userText.length + 1));
+            for (let i = 0; i < passLength; i++) {
+                if (i >= userTextPosition && i < userTextPosition + userText.length) {
+                    password += userText[i - userTextPosition];
+                } else {
+                    const randomIndex = Math.floor(Math.random() * allowedChars.length);
+                    password += allowedChars[randomIndex];
+                }
             }
-            return array.join('');
+        } else {
+            // Generate a password without user text
+            for (let i = 0; i < passLength; i++) {
+                const randomIndex = Math.floor(Math.random() * allowedChars.length);
+                password += allowedChars[randomIndex];
+            }
         }
-
         document.getElementById('genbox').value = password;
-
     });
 
         document.getElementById('autoPassBtn').addEventListener('click', () => {
