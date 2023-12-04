@@ -55,16 +55,27 @@
         /* box-shadow: 1px 4px 3px 6px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 10px rgba(0, 0, 0, 0.25); */
     }
 
+    .GenPassBox {
+      position: absolute;
+      left: 30%;
+      bottom: 10px;
+    }
+
     /* Background innerbox */
     .innerbox {
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 50px;
       width: 65%;
       background: linear-gradient(180deg, #6678a5 0%, rgba(152, 181, 255, 0.00) 100%);
       box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .GeneratorBox {
+      position: relative;
+      bottom: 10%;
     }
 
 /* Fizxed background */
@@ -91,9 +102,8 @@
 
     h2{ /* TODO: Fix the centering */
       position: relative;
-      left: 5%;
       width: 50%;
-      bottom: 40px;
+      bottom: 65px;
       color: #dfc5e6;
       text-align: center;
       font-size: 40px;
@@ -101,6 +111,18 @@
       font-family: Londrina Sketch;
       font-style: normal;
       font-weight: 400;
+      line-height: normal;
+    }
+
+    h3{
+      position: relative;
+      color: #ffffff;
+      text-align: center;
+      font-size: 15px;
+      text-shadow: -1px 10px 10px #b297d4;
+      font-family: Londrina Sketch;
+      font-style: normal;
+      font-weight: 5;
       line-height: normal;
     }
 
@@ -112,7 +134,7 @@
 
 .ProfileIMG{
   position: relative;
-  bottom: 150px;
+  bottom: 185px;
   right: 80px;
   width:100px;
   height:100px;

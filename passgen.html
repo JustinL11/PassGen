@@ -21,7 +21,7 @@
         }
 
         #genbox {
-                width: 50%; /* You can adjust the width as needed */
+                width: 100%; /* You can adjust the width as needed */
                 height: 60%; /* You can adjust the height as needed */
             }
     </style>
@@ -39,12 +39,10 @@
         </div>
       </div>
 
-    <h1>This is the Password Generator Page</h1>
+    <h1>Password Generator</h1>
 
     <div class = "box">
-        <a href="account_settings.html">View Saved Passwords</a>
-        
-        <div>
+        <div class = "GenPassBox">
         <label for="Uppercase" style="color:white">
         Uppercase <input type="checkbox" id="Uppercase" name="Uppercase" value="yes">
         </label>
@@ -83,15 +81,13 @@
         </label>
         
 
-
-        <center><div>
+    <div>
         <div>
-            <div>
+            <div class="GeneratorBox">
                 <label for="genbox" style="color:white" ></label>
                 <input type="text" id="genbox" name="genbox" /><br><br>
             </div>
-        </center>
-
+            <h3><a href="account_settings.html" style="color: antiquewhite;">View Saved Passwords</a></h3>
 
         <div>
         <center>
