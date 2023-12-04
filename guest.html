@@ -157,15 +157,38 @@
         const autoAllowedChars = uppercaseChars + lowercaseChars + numberChars + specialChars;
         let autoPassword = '';
 
-        for (let i = 0; i < autoPassLength; i++) {
-            const randomIndex = Math.floor(Math.random() * autoAllowedChars.length);
-            autoPassword += autoAllowedChars[randomIndex];
+        if (allowedChars.length === 0) {
+            alert('Please select at least one character type.');
+            return;
         }
 
-        document.getElementById('genbox').value = autoPassword;
+        let password = '';
+
+        if (userText) {
+            if (userText.length >= passLength) {
+                alert('Please choose a text with a lenght that is less than the passwod length');
+                return;
+            } else{
+                // Insert the entire user text at a random position in the password
+                const userTextPosition = Math.floor(Math.random() * (passLength - userText.length + 1));
+                for (let i = 0; i < passLength; i++) {
+                    if (i >= userTextPosition && i < userTextPosition + userText.length) {
+                        password += userText[i - userTextPosition];
+                    } else {
+                        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+                        password += allowedChars[randomIndex];
+                    }
+                }   
+            }
+        }else {
+            // Generate a password without user text
+            for (let i = 0; i < passLength; i++) {
+                const randomIndex = Math.floor(Math.random() * allowedChars.length);
+                password += allowedChars[randomIndex];
+            }
+        }
+        document.getElementById('genbox').value = password;
     });
-
-
 
   </script>
 
