@@ -52,43 +52,42 @@
     <body>
 
         <div class = "innerbox">
-
             <p id="passwordList" style="background-color: black; color: white;">
                 <!-- Passwords will be displayed here -->
             </p>
-
+            
             <button type="button" id="btnClear">Clear</button>
-        
+            
             <script>
                 // Retrieve saved passwords from local storage
                 const savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
-        
+            
                 // Display saved passwords on the page
                 const passwordListContainer = document.getElementById('passwordList');
-        
+            
                 if (savedPasswords.length > 0) {
                     const ul = document.createElement('ul');
-        
-                    savedPasswords.forEach(password => {
+            
+                    savedPasswords.forEach(entry => {
                         const li = document.createElement('li');
-                        li.textContent = password;
+                        li.textContent = `Website: ${entry.website}, Password: ${entry.password}`;
                         ul.appendChild(li);
                     });
-
-                    
-        
+            
                     passwordListContainer.appendChild(ul);
                 } else {
                     passwordListContainer.textContent = 'No saved passwords.';
                 }
-                    // Add event listener to the "Clear" button
-                 document.getElementById('btnClear').addEventListener('click', function () {
-                  // Clear local storage
+            
+                // Add event listener to the "Clear" button
+                document.getElementById('btnClear').addEventListener('click', function () {
+                    // Clear local storage
                     localStorage.removeItem('savedPasswords');
-                // Clear the displayed passwords on the page
-             passwordListContainer.textContent = 'No saved passwords.';
-                 });
-                    
+                    // Clear the displayed passwords on the page
+                    passwordListContainer.textContent = 'No saved passwords.';
+                });
+            </script>
+            
             </script>
 
         </div>

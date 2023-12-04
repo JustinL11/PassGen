@@ -78,6 +78,11 @@
             </label>
         </div>
 
+        <label for="websiteName" style="color:white">
+            Website Name: <input type="text" id="websiteName" name="websiteName">
+        </label>
+        
+
 
         <center><div>
         <div>
@@ -177,22 +182,25 @@
 
 // Saves to local storage
 function savePassword() {
-        const generatedPassword = document.getElementById('genbox').value;
-        if (generatedPassword) {
-            // Retrieve existing passwords from local storage or initialize an empty array
-            const savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
-            
-            // Add the new password to the array
-            savedPasswords.push(generatedPassword);
-            
-            // Save the updated array back to local storage
-            localStorage.setItem('savedPasswords', JSON.stringify(savedPasswords));
+    const generatedPassword = document.getElementById('genbox').value;
+    const websiteName = document.getElementById('websiteName').value;
 
-            alert('Password saved!');
-        } else {
-            alert('No password to save. Generate a password first.');
-        }
+    if (generatedPassword && websiteName) {
+        // Retrieve existing passwords from local storage or initialize an empty array
+        const savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
+
+        // Add the new password and website name to the array as an object
+        savedPasswords.push({ password: generatedPassword, website: websiteName });
+
+        // Save the updated array back to local storage
+        localStorage.setItem('savedPasswords', JSON.stringify(savedPasswords));
+
+        alert('Password saved!');
+    } else {
+        alert('Please enter a website name and generate a password first.');
     }
+}
+
 
 
     // Dropdown menu logic
