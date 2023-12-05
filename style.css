@@ -1,28 +1,3 @@
-/* 
-.overlay{
-    position:relative;
-    top: 0;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    
-    
-      }
-      iframe {
-       width: 50%;
-       height: 500px;
-       position: relative;
-       right: 25%;
-       top: 100px;
-    
-    }
-
-    h1{
-        position:relative;
-        bottom:30rem;
-        left:50rem;
-    } */
 
     #one{
         display: block;
@@ -52,7 +27,6 @@
         background: linear-gradient(180deg, #7E92C5 0%, rgba(152, 181, 255, 0.00) 100%);
         box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
         
-        /* box-shadow: 1px 4px 3px 6px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 10px rgba(0, 0, 0, 0.25); */
     }
 
     .GenPassBox {
