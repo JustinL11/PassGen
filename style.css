@@ -102,6 +102,7 @@
 
     h2{ /* TODO: Fix the centering */
       position: relative;
+      left: 5%;
       width: 50%;
       bottom: 65px;
       color: #dfc5e6;
